@@ -44,9 +44,7 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         frameLayout=findViewById(R.id.frame);
-
         BottomNavigationView navigation = findViewById(R.id.navigationBar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

@@ -58,6 +58,7 @@ public class Login extends AppCompatActivity {
        prefPass =  pref.getString("password" , "");
 
 
+
     }
 
     public void signUP(View view) {
@@ -98,19 +99,17 @@ public class Login extends AppCompatActivity {
                             SharedPreferences.Editor e = myPref.edit();
                             e.putString("email", getemail.getText().toString());
                             e.putString("password" , password.getText().toString());
-                            Toast.makeText(getApplicationContext(), "check", Toast.LENGTH_SHORT).show();
+
                             e.commit();
 
                         }
 
                        Intent intent = new Intent(getApplicationContext() , Home.class );
                         startActivity(intent);
+                        Toast.makeText(Login.this, emailOfuser, Toast.LENGTH_SHORT).show();
 
                         finish();
 
-
-
-                        Toast.makeText(Login.this, "hhhhhh", Toast.LENGTH_SHORT).show();
                         break;
                         }
               }
@@ -128,14 +127,16 @@ public class Login extends AppCompatActivity {
 
     public void rememberMe (){
 
-        if (!prefEmail.equals("")){
+        if (!prefEmail.equals("")&& !prefEmail.equals("yossefEmad0000@gmail.com") && !emailOfuser.equals("yossefEmad0000@gmail.com") ){
+
+
 
         Intent intent = new Intent(getApplicationContext() , Home.class );
         startActivity(intent);
         finish();
 
 
-            Toast.makeText(this, "agdgsfhlkshfdkhsf", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
 
     }else {
         new Handler().postDelayed(new Runnable() {
@@ -152,8 +153,21 @@ public class Login extends AppCompatActivity {
 
 
     public void Admin (){
-        if(emailOfuser.equals("yossefEmad0000@gmail.com")&&passOfUser.equals("123456789")){
+        if(emailOfuser.equals("yossefEmad0000@gmail.com")&&passOfUser.equals("123456789")|| prefEmail.equals("yossefEmad0000@gmail.com")
+                &&emailOfuser.isEmpty()&&passOfUser.isEmpty()){
 
+            if (  checkBox.isChecked()){
+
+                SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
+                SharedPreferences.Editor e = myPref.edit();
+                e.putString("email", getemail.getText().toString());
+                e.putString("password" , password.getText().toString());
+
+                e.commit();
+
+            }
+
+             r=true ;
             Intent intent = new Intent(getApplicationContext() , CustomerList.class );
             startActivity(intent);
             finish();
