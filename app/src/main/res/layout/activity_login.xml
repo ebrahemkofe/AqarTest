@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_weight="1"/>
+
+
+
+
+
+    <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+
+        android:lines="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Enter your Email"
+        android:layout_gravity="center"
+        android:id="@+id/getEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="163dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_weight="1"/>
+
+
+        <EditText
+            android:lines="1"
+            android:hint="Enter your password"
+        android:layout_gravity="center"
+        android:id="@+id/getPassword"
+        android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="247dp" />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="23dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:id="@+id/rememberMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Remember me "
+                />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_weight="1"/>
+
+
+        <Button
+        android:layout_gravity="center"
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="login"
+        android:text="login"
+
+        />
+</LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_weight="1"/>
+
+
+
+    <Button
+
+        android:layout_gravity="center"
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="signUP"
+        android:text="Sign up"
+         />
+
+</LinearLayout>

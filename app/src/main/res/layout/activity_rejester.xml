@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Rejester">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+android:layout_marginBottom="10dp"
+        android:layout_weight="4"/>
+
+
+    <EditText
+        android:hint="  user name"
+        android:lines="1"
+        android:id="@+id/username"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        />
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:lines="1"
+        android:hint=" Email"
+        android:id="@+id/email"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:lines="1"
+        android:hint=" password"
+        android:id="@+id/password"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:lines="1"
+        android:hint="  phone number"
+        android:id="@+id/phone"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <EditText
+        android:hint=" Jop tittle (optional) "
+
+        android:id="@+id/jopTittel"
+        android:layout_width="220dp"
+        android:lines="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <Button
+        android:text="create account"
+
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:onClick="reject"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

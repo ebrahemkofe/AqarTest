@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "2000472797",
+    "firebase_url": "https://aqar-test.firebaseio.com",
+    "project_id": "aqar-test",
+    "storage_bucket": "aqar-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2000472797:android:93f82ff96190cbf8",
+        "android_client_info": {
+          "package_name": "com.example.maggy.aqartest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2000472797-ihor72b9tpgl5sr0kunc2bal352nvnf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwY70smsz9pLl4SjmorvjquSdiNjLfVDI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
