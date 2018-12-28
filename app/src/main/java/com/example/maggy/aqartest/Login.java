@@ -103,12 +103,12 @@ public class Login extends AppCompatActivity {
 
                         }
 
-                       /* Intent intent = new Intent(getApplicationContext() , CustomerList.class );
+                       Intent intent = new Intent(getApplicationContext() , Home.class );
                         startActivity(intent);
 
                         finish();
 
-                        */
+
 
                         Toast.makeText(Login.this, "hhhhhh", Toast.LENGTH_SHORT).show();
                         break;
@@ -129,12 +129,12 @@ public class Login extends AppCompatActivity {
     public void rememberMe (){
 
         if (!prefEmail.equals("")){
-/*
-        Intent intent = new Intent(getApplicationContext() , CustomerList.class );
+
+        Intent intent = new Intent(getApplicationContext() , Home.class );
         startActivity(intent);
         finish();
 
-        */
+
             Toast.makeText(this, "agdgsfhlkshfdkhsf", Toast.LENGTH_SHORT).show();
 
     }else {
