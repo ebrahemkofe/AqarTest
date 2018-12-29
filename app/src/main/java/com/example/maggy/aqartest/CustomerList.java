@@ -1,6 +1,7 @@
 package com.example.maggy.aqartest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 public class CustomerList extends AppCompatActivity {
 
     ListView listView ;
+    Button logOut ;
 
     ArrayList<dataOfFireBase>dataList = new ArrayList<>();
 
@@ -37,8 +40,20 @@ public class CustomerList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_list);
 
+        logOut = findViewById(R.id.admin_logout);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
+                SharedPreferences.Editor e = myPref.edit();
+                e.putBoolean("intent",false);
+                e.commit();
 
-
+                Intent intent = new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
 

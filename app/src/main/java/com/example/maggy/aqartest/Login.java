@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
     dataOfFireBase data2 = new dataOfFireBase() ;
 
     private long backPressedTime ;
+    boolean intent ; 
 
 
     String emailOfuser ;
@@ -52,10 +53,30 @@ public class Login extends AppCompatActivity {
        getemail = findViewById(R.id.getEmail);
        password = findViewById(R.id.getPassword);
        checkBox= findViewById(R.id.rememberMe);
+       
+       
+       
 
        SharedPreferences pref = getSharedPreferences("remember", 0);
        prefEmail =     pref.getString("email" , "");
        prefPass =  pref.getString("password" , "");
+       intent = pref.getBoolean("intent",false );
+       
+       if (intent==true && prefEmail.equals("yossefEmad0000@gmail.com")){
+
+
+           Intent intent = new Intent(getApplicationContext() , CustomerList.class );
+           startActivity(intent);
+           finish();
+           Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
+       }else if(intent==true){
+
+           Intent intent = new Intent(getApplicationContext() , Home.class );
+           startActivity(intent);
+           finish();
+           Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
+       }
+
 
 
 
@@ -99,6 +120,7 @@ public class Login extends AppCompatActivity {
                             SharedPreferences.Editor e = myPref.edit();
                             e.putString("email", getemail.getText().toString());
                             e.putString("password" , password.getText().toString());
+                            e.putBoolean("intent",true);
 
                             e.commit();
 
@@ -112,6 +134,7 @@ public class Login extends AppCompatActivity {
 
                         break;
                         }
+
               }
             }
             @Override
@@ -119,26 +142,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-      rememberMe();
-        Admin();
 
-    }
-
-
-    public void rememberMe (){
-
-        if (!prefEmail.equals("")&& !prefEmail.equals("yossefEmad0000@gmail.com") && !emailOfuser.equals("yossefEmad0000@gmail.com") ){
-
-
-
-        Intent intent = new Intent(getApplicationContext() , Home.class );
-        startActivity(intent);
-        finish();
-
-
-            Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
-
-    }else {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -148,13 +152,20 @@ public class Login extends AppCompatActivity {
                 }
             }
         }, 5000);
+
+
+      Admin();
+
     }
-    }
+
+
+
+
 
 
     public void Admin (){
-        if(emailOfuser.equals("yossefEmad0000@gmail.com")&&passOfUser.equals("123456789")|| prefEmail.equals("yossefEmad0000@gmail.com")
-                &&emailOfuser.isEmpty()&&passOfUser.isEmpty()){
+        if(emailOfuser.equals("yossefEmad0000@gmail.com")&&passOfUser.equals("123456789") )
+        {
 
             if (  checkBox.isChecked()){
 
@@ -162,12 +173,14 @@ public class Login extends AppCompatActivity {
                 SharedPreferences.Editor e = myPref.edit();
                 e.putString("email", getemail.getText().toString());
                 e.putString("password" , password.getText().toString());
+                e.putBoolean("intent",true);
 
                 e.commit();
 
             }
 
              r=true ;
+            
             Intent intent = new Intent(getApplicationContext() , CustomerList.class );
             startActivity(intent);
             finish();
