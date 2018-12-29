@@ -34,16 +34,16 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
-            android:background="@drawable/inputbutton2"
+            android:background="@drawable/inputbutton"
             android:text="Out side"
-            android:textColor="#ffffff"
+            android:textColor="#000"
             android:layout_height="40dp" />
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:background="@drawable/inputbutton3"
+            android:background="@drawable/inputbutton"
             android:text="compound"
-            android:textColor="#ffffff"
+            android:textColor="#000"
             android:layout_height="40dp" />
 
 
