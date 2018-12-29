@@ -17,10 +17,4 @@
 
         />
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="Ahln"-->
-        <!--android:textSize="45sp"/>-->
-
 </RelativeLayout>

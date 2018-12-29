@@ -15,7 +15,7 @@ public class PanoramaView extends AppCompatActivity {
 
     private GyroscopeObserver gyroscopeObserver;
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
+//    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -49,7 +49,7 @@ public class BlankFragment extends Fragment {
             textSliderView.image(images[i]);
             sl.addSlider(textSliderView);
         }
-
+//888
         return view;
     }
 
