@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/threed"
+        android:src="@drawable/panor"
         app:piv_enablePanoramaMode="true"
         app:piv_show_scrollbar="true"
         app:piv_invertScrollDirection="false"
