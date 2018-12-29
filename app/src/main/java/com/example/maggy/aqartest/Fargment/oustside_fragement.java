@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.maggy.aqartest.Adapter.imageadapter2;
+import com.example.maggy.aqartest.Adapter.ImageAdapter;
+
 import com.example.maggy.aqartest.R;
 
 /*creat by abdalla*/
@@ -15,11 +16,17 @@ import com.example.maggy.aqartest.R;
 public class oustside_fragement extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+         int[] Images = new int[]{
+                R.drawable.out,
+                R.drawable.out2,
+                R.drawable.out3,
+
+        };
+
         View v = inflater.inflate(R.layout.outside_fragment, container, false);
 
-
         ViewPager viewPager=v.findViewById(R.id.ViewPager_CompFrag1);
-        imageadapter2 adapter= new imageadapter2(getContext());
+        ImageAdapter adapter= new ImageAdapter(getContext(),Images);
         viewPager.setAdapter(adapter);
         return v;
     }

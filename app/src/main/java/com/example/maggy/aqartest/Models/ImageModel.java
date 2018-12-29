@@ -1,4 +1,4 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Models;
 
 public class ImageModel {
     private int image_drawable;

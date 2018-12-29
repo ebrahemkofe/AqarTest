@@ -1,6 +1,6 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Models;
 
-public class dataOfFireBase {
+public class dataOfFireBase_Model {
 
     String username;
     String passworrd;

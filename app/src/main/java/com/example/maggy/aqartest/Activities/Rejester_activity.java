@@ -1,24 +1,20 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Activities;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.maggy.aqartest.R;
+import com.example.maggy.aqartest.Models.dataOfFireBase_Model;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.Random;
 
-public class Rejester extends AppCompatActivity {
+public class Rejester_activity extends AppCompatActivity {
 
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -31,7 +27,7 @@ public class Rejester extends AppCompatActivity {
 
    private  String   username1 , email1 , password1, phonenumber1 , jopTittle1;
 
-   dataOfFireBase data1 = new dataOfFireBase() ;
+   dataOfFireBase_Model data1 = new dataOfFireBase_Model() ;
      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +66,7 @@ public class Rejester extends AppCompatActivity {
 
         else {
 
-            if (oneTimeClick == true) {
+            if (oneTimeClick) {
 
 
                 data1.setUsername(username1);
@@ -91,7 +87,7 @@ public class Rejester extends AppCompatActivity {
                 Toast.makeText(this, "Succssful", Toast.LENGTH_SHORT).show();
 
                 oneTimeClick = false;
-                Intent intent = new Intent(this, Login.class);
+                Intent intent = new Intent(this, Login_activity.class);
                 startActivity(intent);
                 finish();
 
@@ -99,5 +95,8 @@ public class Rejester extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

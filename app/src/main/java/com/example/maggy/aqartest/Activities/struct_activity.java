@@ -1,18 +1,21 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
+
+import com.example.maggy.aqartest.Models.ImageModel;
+import com.example.maggy.aqartest.R;
+import com.example.maggy.aqartest.Adapter.SlidingImage_Adapter;
 
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class struct extends AppCompatActivity {
+public class struct_activity extends AppCompatActivity {
 
     private static ViewPager mPager;
     private static int currentPage = 0;
@@ -51,7 +54,7 @@ public class struct extends AppCompatActivity {
     private void init() {
 
         mPager = (ViewPager) findViewById(R.id.pager11);
-        mPager.setAdapter(new SlidingImage_Adapter(struct.this,imageModelArrayList));
+        mPager.setAdapter(new SlidingImage_Adapter(struct_activity.this,imageModelArrayList));
 
 
 
@@ -87,7 +90,7 @@ public class struct extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        Intent intent2 = new Intent(getApplicationContext(),Home.class);
+        Intent intent2 = new Intent(getApplicationContext(),Home_activity.class);
         startActivity(intent2);
         finish();
 

@@ -1,4 +1,4 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Fargment;
 
 
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.ScrollView;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.example.maggy.aqartest.R;
 
 
 /**

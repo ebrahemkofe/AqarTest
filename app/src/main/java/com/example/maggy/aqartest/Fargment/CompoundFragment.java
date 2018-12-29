@@ -19,8 +19,19 @@ public class CompoundFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.compound_frag, container, false);
 
+
+       //static values
+        int[] Images = new int[]{
+
+                R.drawable.comp3,
+                R.drawable.comp4,
+                R.drawable.comp5,
+                R.drawable.comp6
+        };
+
+
         ViewPager viewPager=v.findViewById(R.id.ViewPager_CompFrag);
-        ImageAdapter adapter= new ImageAdapter(getContext());
+        ImageAdapter adapter= new ImageAdapter(getContext(),Images);
         viewPager.setAdapter(adapter);
         return v;
     }

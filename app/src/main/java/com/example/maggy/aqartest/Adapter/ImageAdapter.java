@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import com.example.maggy.aqartest.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by aswany on 12/29/18.
  */
@@ -17,16 +19,11 @@ import com.example.maggy.aqartest.R;
 public class ImageAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
-    private int[] Images = new int[]{
+    private int[] Images;
 
-            R.drawable.comp3,
-            R.drawable.comp4,
-            R.drawable.comp5,
-            R.drawable.comp6
-    };
-
-    public ImageAdapter(Context context) {
+    public ImageAdapter(Context context, int[] imags ) {
         this.context = context;
+        this.Images=imags;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 

@@ -1,4 +1,4 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -6,13 +6,13 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.firebase.database.ChildEventListener;
+import com.example.maggy.aqartest.R;
+import com.example.maggy.aqartest.Models.dataOfFireBase_Model;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,9 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Random;
 
-public class Login extends AppCompatActivity {
+public class Login_activity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference ref = firebaseDatabase.getReference() ;
@@ -34,10 +33,10 @@ public class Login extends AppCompatActivity {
 
     String prefPass , prefEmail ;
 
-    dataOfFireBase data2 = new dataOfFireBase() ;
+    dataOfFireBase_Model data2 = new dataOfFireBase_Model() ;
 
     private long backPressedTime ;
-    boolean intent ; 
+    boolean intent ;
 
 
     String emailOfuser ;
@@ -53,25 +52,25 @@ public class Login extends AppCompatActivity {
        getemail = findViewById(R.id.getEmail);
        password = findViewById(R.id.getPassword);
        checkBox= findViewById(R.id.rememberMe);
-       
-       
-       
+
+
+
 
        SharedPreferences pref = getSharedPreferences("remember", 0);
        prefEmail =     pref.getString("email" , "");
        prefPass =  pref.getString("password" , "");
        intent = pref.getBoolean("intent",false );
-       
+
        if (intent==true && prefEmail.equals("yossefEmad0000@gmail.com")){
 
 
-           Intent intent = new Intent(getApplicationContext() , CustomerList.class );
+           Intent intent = new Intent(getApplicationContext() , CustomerList_activity.class );
            startActivity(intent);
            finish();
            Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
        }else if(intent==true){
 
-           Intent intent = new Intent(getApplicationContext() , Home.class );
+           Intent intent = new Intent(getApplicationContext() , Home_activity.class );
            startActivity(intent);
            finish();
            Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
@@ -83,7 +82,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void signUP(View view) {
-        Intent i = new Intent (this , Rejester.class);
+        Intent i = new Intent (this , Rejester_activity.class);
         startActivity(i);
         finish();
     }
@@ -96,7 +95,7 @@ public class Login extends AppCompatActivity {
          passOfUser = password.getText().toString();
 
 
-        final ArrayList<dataOfFireBase> list = new ArrayList<>();
+        final ArrayList<dataOfFireBase_Model> list = new ArrayList<>();
 
 
         ref.child("users").addValueEventListener(new ValueEventListener() {
@@ -104,7 +103,7 @@ public class Login extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                list.add(dataSnapshot1.getValue(dataOfFireBase.class));
+                list.add(dataSnapshot1.getValue(dataOfFireBase_Model.class));
 
                 }
 
@@ -126,9 +125,9 @@ public class Login extends AppCompatActivity {
 
                         }
 
-                       Intent intent = new Intent(getApplicationContext() , Home.class );
+                       Intent intent = new Intent(getApplicationContext() , Home_activity.class );
                         startActivity(intent);
-                        Toast.makeText(Login.this, emailOfuser, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_activity.this, emailOfuser, Toast.LENGTH_SHORT).show();
 
                         finish();
 
@@ -147,7 +146,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void run() {
                 if (r == false){
-                    Toast.makeText(Login.this, " Check email or password ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login_activity.this, " Check email or password ", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -180,8 +179,8 @@ public class Login extends AppCompatActivity {
             }
 
              r=true ;
-            
-            Intent intent = new Intent(getApplicationContext() , CustomerList.class );
+
+            Intent intent = new Intent(getApplicationContext() , CustomerList_activity.class );
             startActivity(intent);
             finish();
 
@@ -193,7 +192,7 @@ public class Login extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            finish();
+            finishAffinity();
         } else {
             Toast.makeText(this, "press again to exit ", Toast.LENGTH_SHORT).show();
         }

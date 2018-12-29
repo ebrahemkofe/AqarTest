@@ -12,18 +12,18 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".Activities.SplashScreen_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Rejester" />
-        <activity android:name=".CustomerList" />
-        <activity android:name=".Home" />
-        <activity android:name=".Login"></activity>
-        <activity android:name=".PanoramaView"></activity>
-        <activity android:name=".struct"></activity>
+        <activity android:name=".Activities.Rejester_activity" />
+        <activity android:name=".Activities.CustomerList_activity" />
+        <activity android:name=".Activities.Home_activity" />
+        <activity android:name=".Activities.Login_activity"></activity>
+        <activity android:name=".Activities.PanoramaView_activity"></activity>
+        <activity android:name=".Activities.struct_activity"></activity>
 
     </application>
 

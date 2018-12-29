@@ -1,10 +1,12 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class SplashScreen extends Activity {
+import com.example.maggy.aqartest.R;
+
+public class SplashScreen_activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +18,7 @@ public class SplashScreen extends Activity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    Intent intent = new Intent(SplashScreen.this, Login.class);
+                    Intent intent = new Intent(SplashScreen_activity.this, Login_activity.class);
                     startActivity(intent);
                 }
             }

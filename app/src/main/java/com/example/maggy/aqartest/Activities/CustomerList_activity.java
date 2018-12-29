@@ -1,4 +1,4 @@
-package com.example.maggy.aqartest;
+package com.example.maggy.aqartest.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.maggy.aqartest.R;
+import com.example.maggy.aqartest.Models.dataOfFireBase_Model;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,12 +26,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CustomerList extends AppCompatActivity {
+public class CustomerList_activity extends AppCompatActivity {
 
     ListView listView ;
     Button logOut ;
 
-    ArrayList<dataOfFireBase>dataList = new ArrayList<>();
+    ArrayList<dataOfFireBase_Model>dataList = new ArrayList<>();
 
     DatabaseReference reff = FirebaseDatabase.getInstance().getReference();
     private long backPressedTime;
@@ -49,7 +50,7 @@ public class CustomerList extends AppCompatActivity {
                 e.putBoolean("intent",false);
                 e.commit();
 
-                Intent intent = new Intent(getApplicationContext(),Login.class);
+                Intent intent = new Intent(getApplicationContext(),Login_activity.class);
                 startActivity(intent);
                 finish();
             }
@@ -68,7 +69,7 @@ public class CustomerList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                    dataList.add(dataSnapshot1.getValue(dataOfFireBase.class));
+                    dataList.add(dataSnapshot1.getValue(dataOfFireBase_Model.class));
 
                 }
 
@@ -92,7 +93,7 @@ public class CustomerList extends AppCompatActivity {
 
     public class Adapter extends ArrayAdapter {
 
-        ArrayList<dataOfFireBase> mlist;
+        ArrayList<dataOfFireBase_Model> mlist;
 
         public Adapter(@NonNull Context context, int resource, @NonNull ArrayList objects) {
             super(context, resource, objects);
