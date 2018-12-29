@@ -37,7 +37,9 @@ public class Home extends AppCompatActivity {
                     Toast.makeText(Home.this,"first",Toast.LENGTH_LONG).show();
                     return true;
                 case R.id.navigation_dashboard:
-                    Toast.makeText(Home.this,"second",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(),PanoramaView.class);
+                    startActivity(intent);
+                    finish();
                     return true;
                 case R.id.navigation_notifications:
                     Toast.makeText(Home.this,"third",Toast.LENGTH_LONG).show();
@@ -51,8 +53,8 @@ public class Home extends AppCompatActivity {
                     e.putBoolean("intent",false);
                     e.commit();
 
-                    Intent intent = new Intent(getApplicationContext(),Login.class);
-                    startActivity(intent);
+                    Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                    startActivity(intent1);
                     finish();
                     return true;
             }
@@ -70,6 +72,15 @@ public class Home extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
        inside = findViewById(R.id.inside);
+
+
+        Fragment f =new BlankFragment();
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+        ft.replace(R.id.frame,f,"fra");
+
+        ft.commit();
 
        inside.setOnClickListener(new View.OnClickListener() {
            @Override

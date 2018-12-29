@@ -1,10 +1,12 @@
 package com.example.maggy.aqartest;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 
 import com.gjiazhe.panoramaimageview.GyroscopeObserver;
@@ -39,5 +41,12 @@ public class PanoramaView extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         gyroscopeObserver.unregister();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent1 = new Intent(getApplicationContext(),Home.class);
+        startActivity(intent1);
+        finish();
     }
 }

@@ -20,7 +20,7 @@ public class BlankFragment extends Fragment {
 
     ScrollView sv;
     SliderLayout sl;
-    int [] images = {R.drawable.map,
+    int [] images = {
             R.drawable.image1,
             R.drawable.image2,
             R.drawable.image3,
@@ -45,10 +45,11 @@ public class BlankFragment extends Fragment {
         for (int i = 0; i < images.length; i++) {
 
             TextSliderView textSliderView = new TextSliderView(this.getContext());
-            textSliderView.setScaleType(BaseSliderView.ScaleType.CenterInside);
+            textSliderView.setScaleType(BaseSliderView.ScaleType.CenterCrop);
             textSliderView.image(images[i]);
             sl.addSlider(textSliderView);
         }
+        if (container!=null)container.removeAllViews();
 
         return view;
     }

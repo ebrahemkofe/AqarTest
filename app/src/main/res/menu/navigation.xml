@@ -3,25 +3,25 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="maps" />
+        android:icon="@drawable/structure"
+        android:title="structure" />
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="3d View" />
+        android:icon="@drawable/panorama"
+        android:title="Panorama" />
 
     <item
         android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/location"
         android:title="Location" />
     <item
         android:id="@+id/navigation_notifications2"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/contact"
         android:title="Contact us" />
     <item
         android:id="@+id/logout"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/exit"
         android:title="log out" />
 
 
