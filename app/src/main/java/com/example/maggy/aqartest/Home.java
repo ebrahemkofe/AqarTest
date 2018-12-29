@@ -7,8 +7,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -48,14 +50,23 @@ public class Home extends AppCompatActivity {
                     Toast.makeText(Home.this,"four",Toast.LENGTH_LONG).show();
                     return true;
                 case R.id.logout:
-                    SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
-                    SharedPreferences.Editor e = myPref.edit();
-                    e.putBoolean("intent",false);
-                    e.commit();
 
-                    Intent intent1 = new Intent(getApplicationContext(),Login.class);
-                    startActivity(intent1);
-                    finish();
+                    if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                        SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
+                        SharedPreferences.Editor e = myPref.edit();
+                        e.putBoolean("intent",false);
+                        e.commit();
+
+                        Intent intent1 = new Intent(getApplicationContext(),Login.class);
+                        startActivity(intent1);
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "press again to Logout ", Toast.LENGTH_SHORT).show();
+                    }
+
+                    backPressedTime = System.currentTimeMillis();
+
+
                     return true;
             }
             return false;
