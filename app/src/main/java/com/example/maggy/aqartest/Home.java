@@ -2,10 +2,10 @@ package com.example.maggy.aqartest;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,13 +18,17 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.maggy.aqartest.Fargment.CompoundFragment;
+
+import java.util.Locale;
+
 public class Home extends AppCompatActivity {
 
     private TextView mTextMessage;
     private FrameLayout frameLayout;
     private long backPressedTime ;
 
-    Button inside;
+    Button inside,Compound;
 
 
 
@@ -44,10 +48,14 @@ public class Home extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.navigation_notifications:
-                    Toast.makeText(Home.this,"third",Toast.LENGTH_LONG).show();
+                    String geoUri = "http://maps.google.com/maps?q=loc:" + 30.145305 + "," + 31.630784 + " ("+"Shourok"+")";
+                    Intent map = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                    startActivity(map);
                     return true;
                 case R.id.navigation_notifications2:
-                    Toast.makeText(Home.this,"four",Toast.LENGTH_LONG).show();
+                    Intent contact = new Intent(Intent.ACTION_DIAL);
+                    contact.setData(Uri.parse("tel:01033001007"));
+                    startActivity(contact);
                     return true;
                 case R.id.logout:
 
@@ -83,6 +91,7 @@ public class Home extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
        inside = findViewById(R.id.inside);
+        Compound = findViewById(R.id.Compound);
 
 
         Fragment f =new BlankFragment();
@@ -104,6 +113,18 @@ public class Home extends AppCompatActivity {
 
                ft.commit();
 
+           }
+       });
+       Compound.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Fragment f =new CompoundFragment();
+
+               FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+               ft.replace(R.id.frame,f,"Compound");
+
+               ft.commit();
            }
        });
 
