@@ -20,6 +20,8 @@ public class Home extends AppCompatActivity {
     private FrameLayout frameLayout;
     private long backPressedTime ;
 
+    //fdfksldsvm
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,8 +46,6 @@ public class Home extends AppCompatActivity {
                     SharedPreferences.Editor e = myPref.edit();
                     e.putBoolean("intent",false);
                     e.commit();
-
-
 
                     Intent intent = new Intent(getApplicationContext(),Login.class);
                     startActivity(intent);
