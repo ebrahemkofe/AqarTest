@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.gjiazhe.panoramaimageview.PanoramaImageView
+        android:id="@+id/panorama"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/panor"
+        app:piv_enablePanoramaMode="true"
+        app:piv_show_scrollbar="true"
+        app:piv_invertScrollDirection="false"
+
+        />
+
+</RelativeLayout>
