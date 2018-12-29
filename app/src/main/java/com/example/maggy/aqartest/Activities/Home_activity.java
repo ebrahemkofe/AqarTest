@@ -69,13 +69,11 @@ public class Home_activity extends AppCompatActivity {
                         e.putBoolean("intent",false);
                         e.apply();
 
-                        Firebas
 
 
 
-                        Intent intent1 = new Intent(getApplicationContext(),Login_activity.class);
+                        Intent intent1 = new Intent(Home_activity.this,Login_activity.class);
                         startActivity(intent1);
-                        finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "press again to Logout ", Toast.LENGTH_SHORT).show();
                     }

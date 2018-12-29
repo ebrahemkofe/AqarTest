@@ -24,24 +24,23 @@ import java.util.ArrayList;
 public class Login_activity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference ref = firebaseDatabase.getReference() ;
-     boolean r = false ;
+    DatabaseReference ref = firebaseDatabase.getReference();
+    boolean r = false;
 
-     CheckBox checkBox ;
+    CheckBox checkBox;
 
-    private   EditText getemail , password ;
+    private EditText getemail, password;
 
-    String prefPass , prefEmail ;
+    String prefPass, prefEmail;
 
-    dataOfFireBase_Model data2 = new dataOfFireBase_Model() ;
+    dataOfFireBase_Model data2 = new dataOfFireBase_Model();
 
-    private long backPressedTime ;
-    boolean intent ;
+    private long backPressedTime;
+    boolean intent;
 
 
-    String emailOfuser ;
-    String passOfUser ;
-
+    String emailOfuser;
+    String passOfUser;
 
 
     @Override
@@ -49,40 +48,36 @@ public class Login_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-       getemail = findViewById(R.id.getEmail);
-       password = findViewById(R.id.getPassword);
-       checkBox= findViewById(R.id.rememberMe);
+        getemail = findViewById(R.id.getEmail);
+        password = findViewById(R.id.getPassword);
+        checkBox = findViewById(R.id.rememberMe);
 
 
+        SharedPreferences pref = getSharedPreferences("remember", 0);
+        prefEmail = pref.getString("email", "");
+        prefPass = pref.getString("password", "");
+        intent = pref.getBoolean("intent", false);
+
+        if (intent == true && prefEmail.equals("yossefEmad0000@gmail.com")) {
 
 
-       SharedPreferences pref = getSharedPreferences("remember", 0);
-       prefEmail =     pref.getString("email" , "");
-       prefPass =  pref.getString("password" , "");
-       intent = pref.getBoolean("intent",false );
+            Intent intent = new Intent(getApplicationContext(), CustomerList_activity.class);
+            startActivity(intent);
+            finish();
+            Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
+        } else if (intent == true) {
 
-       if (intent==true && prefEmail.equals("yossefEmad0000@gmail.com")){
-
-
-           Intent intent = new Intent(getApplicationContext() , CustomerList_activity.class );
-           startActivity(intent);
-           finish();
-           Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
-       }else if(intent==true){
-
-           Intent intent = new Intent(getApplicationContext() , Home_activity.class );
-           startActivity(intent);
-           finish();
-           Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
-       }
-
-
+            Intent intent = new Intent(getApplicationContext(), Home_activity.class);
+            startActivity(intent);
+            finish();
+            Toast.makeText(this, prefEmail, Toast.LENGTH_SHORT).show();
+        }
 
 
     }
 
     public void signUP(View view) {
-        Intent i = new Intent (this , Rejester_activity.class);
+        Intent i = new Intent(this, Rejester_activity.class);
         startActivity(i);
         finish();
     }
@@ -90,9 +85,8 @@ public class Login_activity extends AppCompatActivity {
     public void login(View view) {
 
 
-
-        emailOfuser  = getemail.getText().toString();
-         passOfUser = password.getText().toString();
+        emailOfuser = getemail.getText().toString();
+        passOfUser = password.getText().toString();
 
 
         final ArrayList<dataOfFireBase_Model> list = new ArrayList<>();
@@ -102,40 +96,39 @@ public class Login_activity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
-                list.add(dataSnapshot1.getValue(dataOfFireBase_Model.class));
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    list.add(dataSnapshot1.getValue(dataOfFireBase_Model.class));
 
                 }
 
-              for (int x = 0 ; x <list.size() ; x++){
+                for (int x = 0; x < list.size(); x++) {
 
-                    if(  list.get(x).getEmail().equals(emailOfuser) && list.get(x).getPassworrd().equals(passOfUser) ){
+                    if (list.get(x).getEmail().equals(emailOfuser) && list.get(x).getPassworrd().equals(passOfUser)) {
 
-                         r =  true ;
+                        r = true;
 
-                        if (  checkBox.isChecked()){
+                        if (checkBox.isChecked()) {
 
                             SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
                             SharedPreferences.Editor e = myPref.edit();
                             e.putString("email", getemail.getText().toString());
-                            e.putString("password" , password.getText().toString());
-                            e.putBoolean("intent",true);
+                            e.putString("password", password.getText().toString());
+                            e.putBoolean("intent", true);
 
                             e.commit();
 
                         }
 
-                       Intent intent = new Intent(getApplicationContext() , Home_activity.class );
+                        Intent intent = new Intent(Login_activity.this, Home_activity.class);
                         startActivity(intent);
                         Toast.makeText(Login_activity.this, emailOfuser, Toast.LENGTH_SHORT).show();
 
-                        finish();
-
                         break;
-                        }
+                    }
 
-              }
+                }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
@@ -145,7 +138,7 @@ public class Login_activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (r == false){
+                if (r == false) {
                     Toast.makeText(Login_activity.this, " Check email or password ", Toast.LENGTH_SHORT).show();
 
                 }
@@ -153,36 +146,30 @@ public class Login_activity extends AppCompatActivity {
         }, 5000);
 
 
-      Admin();
+        Admin();
 
     }
 
 
+    public void Admin() {
+        if (emailOfuser.equals("yossefEmad0000@gmail.com") && passOfUser.equals("123456789")) {
 
-
-
-
-    public void Admin (){
-        if(emailOfuser.equals("yossefEmad0000@gmail.com")&&passOfUser.equals("123456789") )
-        {
-
-            if (  checkBox.isChecked()){
+            if (checkBox.isChecked()) {
 
                 SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
                 SharedPreferences.Editor e = myPref.edit();
                 e.putString("email", getemail.getText().toString());
-                e.putString("password" , password.getText().toString());
-                e.putBoolean("intent",true);
+                e.putString("password", password.getText().toString());
+                e.putBoolean("intent", true);
 
-                e.commit();
+                e.apply();
 
             }
 
-             r=true ;
+            r = true;
 
-            Intent intent = new Intent(getApplicationContext() , CustomerList_activity.class );
+            Intent intent = new Intent(this, CustomerList_activity.class);
             startActivity(intent);
-            finish();
 
         }
 

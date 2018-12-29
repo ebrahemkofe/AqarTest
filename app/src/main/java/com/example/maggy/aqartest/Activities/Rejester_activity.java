@@ -89,7 +89,6 @@ public class Rejester_activity extends AppCompatActivity {
                 oneTimeClick = false;
                 Intent intent = new Intent(this, Login_activity.class);
                 startActivity(intent);
-                finish();
 
             }
         }
