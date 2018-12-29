@@ -6,9 +6,12 @@
         android:title="Contact us" />
 
     <item
+
         android:id="@+id/navigation_home"
         android:icon="@drawable/structure"
-        android:title="structure" />
+        android:title="structure"
+
+        />
 
     <item
         android:id="@+id/navigation_dashboard"

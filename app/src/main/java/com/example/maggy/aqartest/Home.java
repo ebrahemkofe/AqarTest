@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.maggy.aqartest.Fargment.CompoundFragment;
+import com.example.maggy.aqartest.Fargment.oustside_fragement;
 
 import java.util.Locale;
 
@@ -28,7 +29,7 @@ public class Home extends AppCompatActivity {
     private FrameLayout frameLayout;
     private long backPressedTime ;
 
-    Button inside,Compound;
+    Button inside,Compound,outside;
 
 
 
@@ -40,7 +41,9 @@ public class Home extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Toast.makeText(Home.this,"first",Toast.LENGTH_LONG).show();
+                    Intent intent2 = new Intent(getApplicationContext(),struct.class);
+                    startActivity(intent2);
+                    finish();
                     return true;
                 case R.id.navigation_dashboard:
                     Intent intent = new Intent(getApplicationContext(),PanoramaView.class);
@@ -53,9 +56,11 @@ public class Home extends AppCompatActivity {
                     startActivity(map);
                     return true;
                 case R.id.navigation_notifications2:
+
                     Intent contact = new Intent(Intent.ACTION_DIAL);
                     contact.setData(Uri.parse("tel:01033001007"));
                     startActivity(contact);
+
                     return true;
                 case R.id.logout:
 
@@ -90,16 +95,15 @@ public class Home extends AppCompatActivity {
         BottomNavigationView navigation = findViewById(R.id.navigationBar);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-       inside = findViewById(R.id.inside);
+
+        inside = findViewById(R.id.inside);
         Compound = findViewById(R.id.Compound);
+        outside = findViewById(R.id.outside);
 
 
         Fragment f =new BlankFragment();
-
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
         ft.replace(R.id.frame,f,"fra");
-
         ft.commit();
 
        inside.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +131,19 @@ public class Home extends AppCompatActivity {
                ft.commit();
            }
        });
+        outside.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment f =new oustside_fragement();
+
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+                ft.replace(R.id.frame,f,"outside");
+
+                ft.commit();
+            }
+        });
+
 
 
     }

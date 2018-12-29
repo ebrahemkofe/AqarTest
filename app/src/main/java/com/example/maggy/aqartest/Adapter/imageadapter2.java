@@ -10,22 +10,17 @@ import android.widget.ImageView;
 
 import com.example.maggy.aqartest.R;
 
-/**
- * Created by aswany on 12/29/18.
- */
-
-public class ImageAdapter extends PagerAdapter {
+public class imageadapter2 extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
     private int[] Images = new int[]{
+        R.drawable.out,
+            R.drawable.out2,
+            R.drawable.out3,
 
-            R.drawable.comp3,
-            R.drawable.comp4,
-            R.drawable.comp5,
-            R.drawable.comp6
     };
 
-    public ImageAdapter(Context context) {
+    public imageadapter2(Context context) {
         this.context = context;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -46,7 +41,6 @@ public class ImageAdapter extends PagerAdapter {
         View itemView = LayoutInflater.from(context).inflate(R.layout.image_item, container, false);
 
         ImageView imageView = itemView.findViewById(R.id.ImageView_Compound);
-
         imageView.setImageResource(Images[position]);
 
         container.addView(itemView);

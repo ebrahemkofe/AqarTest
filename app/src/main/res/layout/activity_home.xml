@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home"
-    android:background="#343053">
+    android:background="@drawable/backhome">
 
 
 
@@ -15,8 +15,10 @@
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-
+android:background="#2e8fc7"
         android:layout_height="wrap_content">
+
+
         <Button
             android:id="@+id/inside"
             android:layout_margin="5dp"
@@ -24,29 +26,41 @@
             android:layout_weight="1"
             android:text="In side "
             android:layout_marginRight="10dp"
-            android:background="@drawable/inputbutton"
-            android:layout_height="40dp" />
+            android:background="#2e8fc7"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="3dp"
+            android:layout_height="30dp"
+            android:background="#000000"
+            />
         <Button
+            android:id="@+id/outside"
             android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
-            android:background="@drawable/inputbutton"
+            android:background="#2e8fc7"
             android:text="Out side"
             android:textColor="#000"
-            android:layout_height="40dp" />
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="3dp"
+            android:layout_height="30dp"
+            android:background="#000000"
+            />
         <Button
             android:id="@+id/Compound"
             android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:background="@drawable/inputbutton"
+            android:background="#2e8fc7"
             android:text="compound"
             android:textColor="#000"
-            android:layout_height="40dp" />
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frame"
         android:layout_below="@id/linear"
@@ -59,13 +73,16 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigationBar"
+        android:background="#2e8fc7"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:visibility="visible"
-        app:itemTextColor="#ffffff"
+        app:itemTextColor="#fff"
+
+
         app:menu="@menu/navigation" >
 
     </android.support.design.widget.BottomNavigationView>
