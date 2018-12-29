@@ -23,6 +23,13 @@ public class CompoundFragment extends Fragment {
        //static values
         int[] Images = new int[]{
 
+                R.drawable.comp7,
+                R.drawable.comp8,
+                R.drawable.comp9,
+                R.drawable.comp10,
+                R.drawable.comp11,
+                R.drawable.comp12,
+                R.drawable.comp13,
                 R.drawable.comp3,
                 R.drawable.comp4,
                 R.drawable.comp5,
