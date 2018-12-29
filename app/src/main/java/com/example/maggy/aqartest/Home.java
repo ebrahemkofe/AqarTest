@@ -1,5 +1,7 @@
 package com.example.maggy.aqartest;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +35,16 @@ public class Home extends AppCompatActivity {
                     return true;
                 case R.id.navigation_notifications2:
                     Toast.makeText(Home.this,"four",Toast.LENGTH_LONG).show();
+                    return true;
+                case R.id.logout:
+                    SharedPreferences myPref = getSharedPreferences("remember", MODE_PRIVATE);
+                    SharedPreferences.Editor e = myPref.edit();
+                    e.putBoolean("intent",false);
+                    e.commit();
+
+                    Intent intent = new Intent(getApplicationContext(),Login.class);
+                    startActivity(intent);
+                    finish();
                     return true;
             }
             return false;
