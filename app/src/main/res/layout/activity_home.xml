@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,23 +9,16 @@
     tools:context=".Home"
     android:background="#343053">
 
-<FrameLayout
-        android:id="@+id/frame"
-        android:layout_below="@id/linear"
-        android:layout_above="@id/navigationBar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_margin="5dp"
+
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/inside"
+            android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:text="In side "
@@ -31,6 +26,7 @@
             android:background="@drawable/inputbutton"
             android:layout_height="40dp" />
         <Button
+            android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginRight="10dp"
@@ -39,6 +35,7 @@
             android:textColor="#000"
             android:layout_height="40dp" />
         <Button
+            android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:background="@drawable/inputbutton"
@@ -48,6 +45,15 @@
 
 
     </LinearLayout>
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_below="@id/linear"
+        android:layout_above="@id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigationBar"
@@ -62,4 +68,4 @@
 
     </android.support.design.widget.BottomNavigationView>
 
-</RelativeLayout>
+</LinearLayout>
