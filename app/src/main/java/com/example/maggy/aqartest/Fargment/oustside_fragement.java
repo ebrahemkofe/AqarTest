@@ -17,7 +17,7 @@ public class oustside_fragement extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
          int[] Images = new int[]{
-                R.drawable.out,
+                R.drawable.outt,
                 R.drawable.out2,
                 R.drawable.out3,
 

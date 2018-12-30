@@ -121,7 +121,7 @@ public class Login_activity extends AppCompatActivity {
 
                         Intent intent = new Intent(Login_activity.this, Home_activity.class);
                         startActivity(intent);
-                        Toast.makeText(Login_activity.this, emailOfuser, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(Login_activity.this, emailOfuser, Toast.LENGTH_SHORT).show();
 
                         break;
                     }
